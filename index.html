@@ -18,28 +18,45 @@
 
     .box {
       text-align: center;
+      position: relative;
     }
 
     button {
-      margin-top: 20px;
+      margin: 10px;
       padding: 10px 20px;
       font-size: 16px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
+
+    #noBtn {
+      position: absolute;
+    }
   </style>
 </head>
 <body>
 
   <div class="box">
-    <h1 id="message">Hello 👋</h1>
-    <button onclick="sayHello()">Click me</button>
+    <h1 id="message">Are you okay? 🤔</h1>
+
+    <button onclick="yesClicked()">YES 😊</button>
+    <button id="noBtn" onmouseover="moveNo()">NO 😈</button>
   </div>
 
   <script>
-    function sayHello() {
-      document.getElementById("message").innerText = "Hello, world! 😊";
+    function yesClicked() {
+      document.getElementById("message").innerText = "Glad to hear that! 😄💙";
+    }
+
+    function moveNo() {
+      const noBtn = document.getElementById("noBtn");
+
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
     }
   </script>
 
